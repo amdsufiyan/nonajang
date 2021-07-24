@@ -161,7 +161,7 @@ class Nonajang {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		// $this->loader->add_action( 'customize_preview_init', $plugin_admin, 'customize_preview_init',100 );
+		
 	}
 
 	/**
@@ -184,6 +184,7 @@ class Nonajang {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles', 200);
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_customize, 'add_customizer_css', 201 );
 		$this->loader->add_action( 'customize_register', $plugin_customize, 'nonajang_customize' );
+		$this->loader->add_action( 'customize_preview_init', $plugin_customize, 'customize_preview_init',200 );
 		$this->loader->add_action( 'customize_save_after', $plugin_customize, 'set_nonajang_style_theme_mods' );
 
 	}

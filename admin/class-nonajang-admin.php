@@ -99,15 +99,6 @@ class Nonajang_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/nonajang-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function customize_preview_init() {
-
-		wp_enqueue_script( $this->plugin_name . '-customize', plugin_dir_url( __FILE__ ) . 'js/nonajang-admin-customize.js', array( 'jquery' ), $this->version, false );
-
-	}
+	
 
 }

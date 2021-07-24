@@ -103,6 +103,16 @@ class Nonajang_Customize {
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/alpha-color-picker.js', array( 'jquery' ), $this->version, false );
 
     }
+    /**
+     * Register the JavaScript for the admin area.
+     *
+     * @since    1.0.0
+     */
+    public function customize_preview_init() {
+
+        wp_enqueue_script( $this->plugin_name . '-customize', plugin_dir_url( __FILE__ ) . 'js/nonajang-admin-customize.js', array( 'jquery','customize-preview' ), $this->version, false );
+
+    }
 
     public function get_customize_data() {
         $data = array();
@@ -173,65 +183,65 @@ class Nonajang_Customize {
 
 
 
-        foreach ($this->get_customize_data() as $key => $value) {
+        // foreach ($this->get_customize_data() as $key => $value) {
 
 
-            $wp_customize->add_setting( $value['setting_id'], array(
-                'type'                 => 'theme_mod',
-                'default'              => $value['setting_default'],
-                'transport'            => 'refresh', // Options: refresh or postMessage.
-                'capability'           => 'edit_theme_options',
-            ) );
+        //     $wp_customize->add_setting( $value['setting_id'], array(
+        //         'type'                 => 'theme_mod',
+        //         'default'              => $value['setting_default'],
+        //         'transport'            => 'refresh', // Options: refresh or postMessage.
+        //         'capability'           => 'edit_theme_options',
+        //     ) );
 
-            if( $value['control_type'] == "text"){
-                $wp_customize->add_control( $value['setting_id'], array(
-                    "label" => $this->get_control_label( $value ),
-                    "section" => 'nonajang_section_one',
-                    "setting" => $value["setting_id"],
-                    "type" => $value["control_type"],
-                ));
+        //     if( $value['control_type'] == "text"){
+        //         $wp_customize->add_control( $value['setting_id'], array(
+        //             "label" => $this->get_control_label( $value ),
+        //             "section" => 'nonajang_section_one',
+        //             "setting" => $value["setting_id"],
+        //             "type" => $value["control_type"],
+        //         ));
 
-            } elseif( $value["control_type"] == "color") {
-                $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $value["setting_id"], array(
-                    "label" => $this->get_control_label( $value ),
-                    "section" => 'nonajang_section_one',
-                    "setting" => $value["setting_id"],
-                    "sanitize_callback" => "sanitize_hex_color"
-                )));
-            } elseif( $value["control_type"] == "image") {
-                $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $value["setting_id"], array(
-                    "label" => $this->get_control_label( $value ),
-                    "section" => 'nonajang_section_one',
-                    "setting" => $value["setting_id"],
-                )));
-            } else {
-                $wp_customize->add_control( $value["control_type"], array(
-                    "label" => $this->get_control_label( $value ),
-                    "section" => 'nonajang_section_one',
-                    "type" => $value["control_type"],
-                ));
-            }
+        //     } elseif( $value["control_type"] == "color") {
+        //         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $value["setting_id"], array(
+        //             "label" => $this->get_control_label( $value ),
+        //             "section" => 'nonajang_section_one',
+        //             "setting" => $value["setting_id"],
+        //             "sanitize_callback" => "sanitize_hex_color"
+        //         )));
+        //     } elseif( $value["control_type"] == "image") {
+        //         $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $value["setting_id"], array(
+        //             "label" => $this->get_control_label( $value ),
+        //             "section" => 'nonajang_section_one',
+        //             "setting" => $value["setting_id"],
+        //         )));
+        //     } else {
+        //         $wp_customize->add_control( $value["control_type"], array(
+        //             "label" => $this->get_control_label( $value ),
+        //             "section" => 'nonajang_section_one',
+        //             "type" => $value["control_type"],
+        //         ));
+        //     }
     
-        }
+        // }
 
         // Inlcude the Alpha Color Picker control file.
         require_once( dirname( __FILE__ ) . '/alpha-color-picker.php' );
         
-        $wp_customize->add_setting('nonajang_jambe', array(
-            'title' => __('Primary Color', 'nonajang'),
+        $wp_customize->add_setting('nonajang_site_footer_background', array(
+            'title' => __('Footer Color', 'nonajang'),
             // 'type' =>'theme_mod',
             'transport' => 'refresh',
             // 'sanitize_callback'     => 'sanitize_hex_color',
             // 'active_callback' => false,
-            'default'     => 'rgba(209,0,55,0.7)',
+            'default'     => 'rgba(50,50,50,0.8)',
         ));
 
         $wp_customize->add_control( new Customize_Alpha_Color_Control(
             $wp_customize,
-            'nonajang_jambe',
+            'nonajang_site_footer_background',
             array(
-                'label' => __('Primary Color', 'nonajang'),
-                'settings' => 'nonajang_jambe',
+                'label' => __('Footer Color', 'nonajang'),
+                'settings' => 'nonajang_site_footer_background',
                 'section' => 'nonajang_section_one',
                 'active_callback' => false,
                 'show_opacity'  => true, // Optional.
@@ -244,6 +254,34 @@ class Nonajang_Customize {
                 )
             )
         ) );
+        
+        $wp_customize->add_setting('nonajang_site_footer_color', array(
+            'title' => __('Footer Color', 'nonajang'),
+            // 'type' =>'theme_mod',
+            'transport' => 'refresh',
+            // 'sanitize_callback'     => 'sanitize_hex_color',
+            // 'active_callback' => false,
+            'default'     => 'rgba(255,234,234,0.2)',
+        ));
+
+        $wp_customize->add_control( new Customize_Alpha_Color_Control(
+            $wp_customize,
+            'nonajang_site_footer_color',
+            array(
+                'label' => __('Footer Color', 'nonajang'),
+                'settings' => 'nonajang_site_footer_color',
+                'section' => 'nonajang_section_one',
+                'active_callback' => false,
+                'show_opacity'  => true, // Optional.
+                'palette'   => array(
+                    'rgb(150, 50, 220)', // RGB, RGBa, and hex values supported
+                    'rgba(50,50,50,0.8)',
+                    'rgba(50,50,50,0.8)',
+                    'rgba( 255, 255, 255, 0.2 )', // Different spacing = no problem
+                    '#0CC99' // Mix of color types = no problem
+                )
+            )
+        ) );
 
 
     }
@@ -252,11 +290,15 @@ class Nonajang_Customize {
 
 
         $styles = '
-            body {
-                background-color: '. get_theme_mod('background_rgba_color') .';
+            #site-footer {
+                background-color: '. get_theme_mod('nonajang_site_footer_background') .';
             }
+            #site-footer p, #site-footer a {
+                color: '. get_theme_mod('nonajang_site_footer_color') .';
+            }
+
             header#site-header {
-                border-bottom: 5px solid '. get_theme_mod('accent_accessible_colors')["content"]["accent"] .';
+                border-bottom: 1px solid '. get_theme_mod('accent_accessible_colors')["content"]["accent"] .';
             }
         ';
 
