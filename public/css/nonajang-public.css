@@ -1,0 +1,163 @@
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
+@media (min-width: 1000px) {
+  body > main, body > header > .header-inner, body > footer > .section-inner {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto; }
+  header#site-header .header-inner {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    header#site-header .header-inner * {
+      padding: 1px;
+      margin: 1px; }
+    header#site-header .header-inner .header-titles-wrapper {
+      max-width: 100%; }
+      header#site-header .header-inner .header-titles-wrapper .header-titles {
+        display: flex;
+        justify-content: space-between;
+        width: 100%; }
+        header#site-header .header-inner .header-titles-wrapper .header-titles .site-description {
+          font-size: 0.9em;
+          font-style: italic; }
+    header#site-header .header-inner .header-navigation-wrapper nav ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: start; }
+      header#site-header .header-inner .header-navigation-wrapper nav ul li a {
+        display: inline-block;
+        margin-right: 10px; }
+    header#site-header .header-inner .header-navigation-wrapper .header-toggles .toggle-wrapper button span span {
+      display: none; }
+  main#site-content {
+    margin-top: 5rem; }
+  main#site-content > article {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column; }
+    main#site-content > article > div, main#site-content > article > header, main#site-content > article > nav, main#site-content > article > figure {
+      margin-left: 20%; }
+    main#site-content > article h1 {
+      font-size: 40px;
+      font-weight: 200; }
+    main#site-content > article h2 {
+      font-size: 32px;
+      font-weight: 200; }
+    main#site-content > article h3 {
+      font-size: 28px;
+      font-weight: 200; }
+    main#site-content > article h4 {
+      font-size: 24px;
+      font-weight: 200; }
+    main#site-content > article h5 {
+      font-size: 20px;
+      font-weight: 200; }
+    main#site-content > article h6 {
+      font-size: 16px;
+      font-weight: 200; }
+    main#site-content > article > header *,
+    main#site-content > article > figure *,
+    main#site-content > article > .post-inner * {
+      padding: 2px;
+      margin: 2px;
+      max-width: 100%;
+      width: auto;
+      height: auto; }
+    main#site-content > article header {
+      background: red;
+      order: 2;
+      position: relative;
+      background: transparent;
+      height: 100%;
+      margin-top: 3rem;
+      padding-top: 0; }
+      main#site-content > article header * {
+        padding: 1px;
+        margin: 1px; }
+      main#site-content > article header .entry-header {
+        padding-top: 0; }
+      main#site-content > article header .entry-header-inner.section-inner.medium {
+        max-width: 100%; }
+        main#site-content > article header .entry-header-inner.section-inner.medium .entry-categories .entry-categories-inner {
+          display: flex;
+          justify-content: end; }
+          main#site-content > article header .entry-header-inner.section-inner.medium .entry-categories .entry-categories-inner a {
+            text-align: right; }
+        main#site-content > article header .entry-header-inner.section-inner.medium .entry-title {
+          font-weight: normal;
+          font-size: 3rem;
+          text-align: left;
+          padding-top: 1rem;
+          padding-bottom: 1rem; }
+        main#site-content > article header .entry-header-inner.section-inner.medium .post-meta-wrapper {
+          position: absolute;
+          top: 0;
+          right: 100%;
+          display: flex;
+          flex-direction: column; }
+          main#site-content > article header .entry-header-inner.section-inner.medium .post-meta-wrapper ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: end; }
+            main#site-content > article header .entry-header-inner.section-inner.medium .post-meta-wrapper ul li {
+              display: flex;
+              flex-direction: row;
+              justify-content: end;
+              flex-direction: row-reverse; }
+              main#site-content > article header .entry-header-inner.section-inner.medium .post-meta-wrapper ul li span {
+                margin-right: 10px; }
+              main#site-content > article header .entry-header-inner.section-inner.medium .post-meta-wrapper ul li span {
+                white-space: nowrap;
+                margin-right: 10px; }
+                main#site-content > article header .entry-header-inner.section-inner.medium .post-meta-wrapper ul li span a {
+                  word-break: normal; }
+            main#site-content > article header .entry-header-inner.section-inner.medium .post-meta-wrapper ul li span {
+              display: inline-block; }
+    main#site-content > article figure::before {
+      display: none; }
+    main#site-content > article figure .featured-media-inner {
+      max-width: 100%;
+      left: auto;
+      width: auto; }
+    main#site-content > article .post-inner {
+      order: 3; }
+    main#site-content > article .section-inner {
+      order: 4; }
+  .footer-nav-widgets-wrapper.header-footer-group h1 {
+    font-size: 40px;
+    font-weight: 200; }
+  .footer-nav-widgets-wrapper.header-footer-group h2 {
+    font-size: 32px;
+    font-weight: 200; }
+  .footer-nav-widgets-wrapper.header-footer-group h3 {
+    font-size: 28px;
+    font-weight: 200; }
+  .footer-nav-widgets-wrapper.header-footer-group h4 {
+    font-size: 24px;
+    font-weight: 200; }
+  .footer-nav-widgets-wrapper.header-footer-group h5 {
+    font-size: 20px;
+    font-weight: 200; }
+  .footer-nav-widgets-wrapper.header-footer-group h6 {
+    font-size: 16px;
+    font-weight: 200; }
+  .footer-nav-widgets-wrapper.header-footer-group .footer-inner.section-inner {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: auto; }
+    .footer-nav-widgets-wrapper.header-footer-group .footer-inner.section-inner aside .footer-widgets-wrapper {
+      width: auto; } }
